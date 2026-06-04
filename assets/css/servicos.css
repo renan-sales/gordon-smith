@@ -1,0 +1,420 @@
+/* =========================================================
+   GORDON & SMITH — servicos.css
+   ========================================================= */
+
+/* ── Nav active state ── */
+.nav-links a.active { color: var(--gold) !important; }
+
+/* ── Page Hero ── */
+.page-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--nav-h);
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(0.4);
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10,10,10,0.9) 0%,
+    rgba(10,10,10,0.5) 70%
+  );
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 80px 32px;
+}
+
+.page-hero-content h1 {
+  font-family: var(--font-head);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -1px;
+  color: var(--white);
+  margin: 16px 0 20px;
+}
+
+.page-hero-content h1 span { color: var(--gold); }
+
+.page-hero-content p {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: var(--gray2);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+/* ── Service sections ── */
+.srv-section {
+  padding: 100px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.srv-section:nth-child(even) { background: var(--dark2); }
+.srv-section:nth-child(odd)  { background: var(--dark);  }
+
+.srv-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.srv-section.reverse .srv-inner { direction: rtl; }
+.srv-section.reverse .srv-inner > * { direction: ltr; }
+
+/* Media side */
+.srv-media {
+  position: relative;
+  border-radius: 8px;
+  overflow: visible;
+}
+
+.srv-media img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.srv-media::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  right: 14px;
+  bottom: 14px;
+  border: 2px solid rgba(201,168,76,0.25);
+  border-radius: 8px;
+  z-index: 0;
+  transition: border-color 0.3s;
+}
+
+.srv-section.reverse .srv-media::before {
+  left: 14px;
+  right: -14px;
+}
+
+.srv-media:hover::before { border-color: var(--gold); }
+
+.srv-num {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  z-index: 2;
+  font-family: var(--font-head);
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--gold);
+  opacity: 0.12;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.srv-section.reverse .srv-num {
+  right: auto;
+  left: -20px;
+}
+
+/* Cert visual (section 05) */
+.srv-media-cert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: var(--dark3);
+  border-radius: 8px;
+  border: 1px solid rgba(201,168,76,0.15);
+  overflow: hidden;
+}
+
+.cert-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.cert-badge-big,
+.cert-badge-sou {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 24px 40px;
+  text-align: center;
+  width: 200px;
+}
+
+.cert-badge-big {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.cert-badge-big span {
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  opacity: 0.8;
+}
+
+.cert-badge-big strong {
+  font-family: var(--font-head);
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.cert-badge-sou {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+}
+
+.cert-badge-sou span {
+  font-family: var(--font-head);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.cert-badge-sou strong {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+/* Content side */
+.srv-content h2 {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.srv-linha {
+  width: 50px;
+  height: 3px;
+  background: var(--gold);
+  margin-bottom: 28px;
+}
+
+.srv-content > p {
+  font-size: 0.97rem;
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.srv-list {
+  list-style: none;
+  margin: 28px 0 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.srv-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.srv-list-icon {
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.2s;
+}
+
+.srv-list li:hover .srv-list-icon { transform: translateX(4px); }
+
+.srv-list strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.srv-list span {
+  font-size: 0.83rem;
+  color: var(--gray);
+  line-height: 1.4;
+}
+
+/* ── Diferenciais ── */
+.diferenciais {
+  background: var(--black);
+  padding: 100px 0;
+}
+
+.dif-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.dif-item {
+  background: var(--dark2);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 36px 28px;
+  transition: border-color var(--trans), transform var(--trans);
+}
+
+.dif-item:hover {
+  border-color: rgba(201,168,76,0.3);
+  transform: translateY(-4px);
+}
+
+.dif-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.dif-item h4 {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.dif-item p {
+  font-size: 0.87rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* ── CTA Banner ── */
+.cta-banner {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.cta-banner-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.cta-banner-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.25);
+}
+
+.cta-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201,168,76,0.15) 0%, rgba(10,10,10,0.7) 100%);
+}
+
+.cta-banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.cta-banner-content h2 {
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.cta-banner-content h2 span { color: var(--gold); }
+
+.cta-banner-content > p {
+  font-size: 1.05rem;
+  color: var(--gray2);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.cta-banner-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.cta-contacts {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-contacts a {
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gray2);
+  transition: color var(--trans);
+}
+
+.cta-contacts a:hover { color: var(--gold); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .srv-inner { grid-template-columns: 1fr; gap: 48px; }
+  .srv-section.reverse .srv-inner { direction: ltr; }
+  .srv-media img { height: 300px; }
+  .srv-media-cert { min-height: 280px; }
+  .dif-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .page-hero-content { padding: 60px 20px; }
+  .srv-section { padding: 64px 0; }
+  .srv-inner { padding: 0 20px; }
+  .dif-grid { grid-template-columns: 1fr; }
+  .cta-contacts { flex-direction: column; gap: 12px; }
+}
